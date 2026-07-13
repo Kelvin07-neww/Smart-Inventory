@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane fx:id="kategoriRoot" styleClass="kategori-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cvserbaada.smartinventory.controller.KategoriController">
+    <padding>
+        <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+    </padding>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="kategori-header">
+            <children>
+                <VBox spacing="4.0">
+                    <children>
+                        <Label text="Master Data Kategori" styleClass="kategori-title" />
+                        <Label text="Kelola referensi kategori untuk data barang" styleClass="kategori-subtitle" />
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="search-box">
+                    <children>
+                        <FontIcon iconLiteral="fas-search" iconSize="14" styleClass="search-icon" />
+                        <TextField fx:id="searchField" promptText="Cari kode atau nama kategori" styleClass="search-field" />
+                    </children>
+                </HBox>
+                <Button onAction="#handleRefresh" styleClass="refresh-button" text="Refresh">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-sync-alt" iconSize="14" />
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="12.0" styleClass="kategori-table-panel">
+            <children>
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                        <Label fx:id="totalDataLabel" text="Total Data: 0" styleClass="table-info-label" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="Klik baris untuk mengisi form" styleClass="table-hint-label" />
+                    </children>
+                </HBox>
+                <TableView fx:id="kategoriTable" prefHeight="430.0" styleClass="kategori-table">
+                    <columns>
+                        <TableColumn fx:id="noColumn" prefWidth="70.0" sortable="false" text="No" />
+                        <TableColumn fx:id="kodeColumn" prefWidth="180.0" text="Kode" />
+                        <TableColumn fx:id="namaColumn" prefWidth="420.0" text="Nama Kategori" />
+                    </columns>
+                </TableView>
+                <Pagination fx:id="pagination" maxPageIndicatorCount="5" styleClass="kategori-pagination" />
+            </children>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox prefWidth="320.0" spacing="18.0" styleClass="kategori-form-panel" BorderPane.alignment="CENTER">
+            <children>
+                <VBox spacing="5.0">
+                    <children>
+                        <Label text="Form Kategori" styleClass="form-title" />
+                        <Label text="Isi kode dan nama kategori" styleClass="form-subtitle" />
+                    </children>
+                </VBox>
+                <VBox spacing="8.0">
+                    <children>
+                        <Label text="Kode Kategori" styleClass="form-label" />
+                        <TextField fx:id="kodeKategoriField" promptText="Contoh: KTG001" styleClass="form-input" />
+                    </children>
+                </VBox>
+                <VBox spacing="8.0">
+                    <children>
+                        <Label text="Nama Kategori" styleClass="form-label" />
+                        <TextField fx:id="namaKategoriField" promptText="Contoh: Minuman" styleClass="form-input" />
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </right>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" styleClass="kategori-action-bar">
+            <children>
+                <Button onAction="#handleTambah" styleClass="secondary-action-button" text="Tambah" />
+                <Button onAction="#handleSimpan" styleClass="primary-action-button" text="Simpan" />
+                <Button fx:id="ubahButton" onAction="#handleUbah" styleClass="warning-action-button" text="Ubah" />
+                <Button fx:id="hapusButton" onAction="#handleHapus" styleClass="danger-action-button" text="Hapus" />
+                <Button onAction="#handleBatal" styleClass="secondary-action-button" text="Batal" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,15 @@
+.status-bar {
+    -fx-background-color: white;
+    -fx-border-color: #E2E8F0 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.status-label {
+    -fx-text-fill: #475569;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+
+.status-icon {
+    -fx-icon-color: #2563EB;
+}

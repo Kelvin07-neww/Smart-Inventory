@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane fx:id="supplierRoot" styleClass="supplier-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cvserbaada.smartinventory.controller.SupplierController">
+    <padding>
+        <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+    </padding>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="supplier-header">
+            <children>
+                <VBox spacing="4.0">
+                    <children>
+                        <Label text="Master Data Supplier" styleClass="supplier-title" />
+                        <Label text="Kelola data supplier." styleClass="supplier-subtitle" />
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="supplier-search-box">
+                    <children>
+                        <FontIcon iconLiteral="fas-search" iconSize="14" styleClass="supplier-search-icon" />
+                        <TextField fx:id="searchField" promptText="Cari kode atau nama supplier" styleClass="supplier-search-field" />
+                    </children>
+                </HBox>
+                <Button onAction="#handleRefresh" styleClass="supplier-refresh-button" text="Refresh">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-sync-alt" iconSize="14" />
+                    </graphic>
+                </Button>
+                <Button onAction="#handleExportPdf" styleClass="supplier-export-button" text="Export PDF">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-file-pdf" iconSize="14" />
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="12.0" styleClass="supplier-table-panel">
+            <children>
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                        <Label fx:id="totalDataLabel" text="Total Data: 0" styleClass="supplier-table-info-label" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="Klik baris untuk mengisi form" styleClass="supplier-table-hint-label" />
+                    </children>
+                </HBox>
+                <TableView fx:id="supplierTable" prefHeight="430.0" styleClass="supplier-table">
+                    <columns>
+                        <TableColumn fx:id="noColumn" prefWidth="60.0" sortable="false" text="No" />
+                        <TableColumn fx:id="kodeColumn" prefWidth="140.0" text="Kode Supplier" />
+                        <TableColumn fx:id="namaColumn" prefWidth="210.0" text="Nama Supplier" />
+                        <TableColumn fx:id="alamatColumn" prefWidth="260.0" text="Alamat" />
+                        <TableColumn fx:id="teleponColumn" prefWidth="150.0" text="Telepon" />
+                    </columns>
+                </TableView>
+                <Pagination fx:id="pagination" maxPageIndicatorCount="5" styleClass="supplier-pagination" />
+            </children>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox prefWidth="320.0" spacing="16.0" styleClass="supplier-form-panel" BorderPane.alignment="CENTER">
+            <children>
+                <VBox spacing="5.0">
+                    <children>
+                        <Label text="Form Supplier" styleClass="supplier-form-title" />
+                        <Label text="Isi data supplier dengan lengkap" styleClass="supplier-form-subtitle" />
+                    </children>
+                </VBox>
+                <VBox spacing="8.0">
+                    <children>
+                        <Label text="Kode Supplier" styleClass="supplier-form-label" />
+                        <TextField fx:id="kodeSupplierField" promptText="Contoh: SUP001" styleClass="supplier-form-input" />
+                    </children>
+                </VBox>
+                <VBox spacing="8.0">
+                    <children>
+                        <Label text="Nama Supplier" styleClass="supplier-form-label" />
+                        <TextField fx:id="namaSupplierField" promptText="Contoh: PT Sumber Makmur" styleClass="supplier-form-input" />
+                    </children>
+                </VBox>
+                <VBox spacing="8.0">
+                    <children>
+                        <Label text="Alamat" styleClass="supplier-form-label" />
+                        <TextArea fx:id="alamatField" prefRowCount="4" promptText="Alamat lengkap supplier" styleClass="supplier-form-textarea" wrapText="true" />
+                    </children>
+                </VBox>
+                <VBox spacing="8.0">
+                    <children>
+                        <Label text="Telepon" styleClass="supplier-form-label" />
+                        <TextField fx:id="teleponField" promptText="081234567890" styleClass="supplier-form-input" />
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </right>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" styleClass="supplier-action-bar">
+            <children>
+                <Button onAction="#handleTambah" styleClass="supplier-secondary-button" text="Tambah" />
+                <Button onAction="#handleSimpan" styleClass="supplier-primary-button" text="Simpan" />
+                <Button fx:id="editButton" onAction="#handleEdit" styleClass="supplier-warning-button" text="Edit" />
+                <Button fx:id="hapusButton" onAction="#handleHapus" styleClass="supplier-danger-button" text="Hapus" />
+                <Button onAction="#handleBatal" styleClass="supplier-secondary-button" text="Batal" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

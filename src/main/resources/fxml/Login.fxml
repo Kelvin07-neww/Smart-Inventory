@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<StackPane styleClass="login-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cvserbaada.smartinventory.controller.LoginController">
+    <children>
+        <HBox alignment="CENTER" maxWidth="1040.0" styleClass="login-shell" StackPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER_LEFT" prefWidth="470.0" spacing="24.0" styleClass="login-hero">
+                    <padding>
+                        <Insets bottom="44.0" left="44.0" right="44.0" top="44.0" />
+                    </padding>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="14.0">
+                            <children>
+                                <StackPane styleClass="hero-logo-box">
+                                    <children>
+                                        <FontIcon iconLiteral="fas-store" iconSize="34" styleClass="hero-logo-icon" />
+                                    </children>
+                                </StackPane>
+                                <VBox alignment="CENTER_LEFT" spacing="2.0">
+                                    <children>
+                                        <Label text="Smart Inventory" styleClass="hero-app-name" />
+                                        <Label text="CV. SERBA ADA" styleClass="hero-company" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <Region VBox.vgrow="ALWAYS" />
+                        <VBox spacing="14.0">
+                            <children>
+                                <Label text="Modern POS inventory and sales workspace for daily mini market operations." wrapText="true" styleClass="hero-headline" />
+                                <Label text="Secure access, clean workflows, and responsive desktop experience." wrapText="true" styleClass="hero-description" />
+                            </children>
+                        </VBox>
+                        <Region VBox.vgrow="ALWAYS" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="hero-badge">
+                            <children>
+                                <FontIcon iconLiteral="fas-shield-alt" iconSize="15" styleClass="hero-badge-icon" />
+                                <Label text="Professional Desktop POS Foundation" styleClass="hero-badge-text" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <VBox fx:id="loginCard" alignment="CENTER_LEFT" prefWidth="430.0" spacing="20.0" styleClass="login-card">
+                    <padding>
+                        <Insets bottom="42.0" left="42.0" right="42.0" top="42.0" />
+                    </padding>
+                    <children>
+                        <VBox spacing="8.0">
+                            <children>
+                                <Label text="Welcome Back" styleClass="login-title" />
+                                <Label text="Sign in to continue to Smart Inventory System" wrapText="true" styleClass="login-subtitle" />
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="9.0" styleClass="field-group">
+                            <children>
+                                <Label text="Email" styleClass="field-label" />
+                                <TextField fx:id="emailField" promptText="admin@cvserbaada.com" styleClass="login-input" />
+                            </children>
+                        </VBox>
+
+                        <VBox spacing="9.0" styleClass="field-group">
+                            <children>
+                                <Label text="Password" styleClass="field-label" />
+                                <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="login-input" />
+                            </children>
+                        </VBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                            <children>
+                                <CheckBox fx:id="rememberMeCheckBox" text="Remember Me" styleClass="remember-check" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label text="Secure BCrypt Login" styleClass="secure-login-label" />
+                            </children>
+                        </HBox>
+
+                        <Button maxWidth="Infinity" onAction="#handleLogin" styleClass="login-button" text="Login" />
+
+                        <Button maxWidth="Infinity" onAction="#handleExit" styleClass="exit-button" text="Exit" />
+
+                        <Label fx:id="messageLabel" minHeight="20.0" styleClass="login-message" />
+
+                        <Region VBox.vgrow="ALWAYS" />
+
+                        <Label text="SmartInventorySystem v1.0-SNAPSHOT" styleClass="login-footer" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</StackPane>

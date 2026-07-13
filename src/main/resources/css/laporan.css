@@ -1,0 +1,96 @@
+.laporan-root {
+    -fx-background-color: #F8FAFC;
+}
+
+.laporan-header {
+    -fx-padding: 0 0 18px 0;
+}
+
+.laporan-title {
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 28px;
+    -fx-font-weight: 900;
+}
+
+.laporan-subtitle {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+
+.laporan-card,
+.summary-card {
+    -fx-background-color: white;
+    -fx-background-radius: 18px;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 18px;
+    -fx-border-width: 1px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.06), 18, 0.16, 0, 5);
+}
+
+.summary-label {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+}
+
+.summary-value,
+.panel-title {
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 15px;
+    -fx-font-weight: 900;
+}
+
+.laporan-table {
+    -fx-background-color: transparent;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 14px;
+    -fx-background-radius: 14px;
+}
+
+.laporan-table .column-header-background {
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 14px 14px 0 0;
+}
+
+.laporan-table .column-header,
+.laporan-table .filler {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+}
+
+.laporan-table .column-header .label {
+    -fx-text-fill: #334155;
+    -fx-font-size: 12px;
+    -fx-font-weight: 900;
+}
+
+.laporan-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #F1F5F9 transparent;
+}
+
+.laporan-table .table-row-cell:filled:selected,
+.laporan-table .table-row-cell:filled:hover {
+    -fx-background-color: #EFF6FF;
+}
+
+.laporan-table .table-cell {
+    -fx-text-fill: #475569;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.preview-area {
+    -fx-background-color: #0F172A;
+    -fx-text-fill: #E2E8F0;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+.preview-area .content {
+    -fx-background-color: #0F172A;
+}

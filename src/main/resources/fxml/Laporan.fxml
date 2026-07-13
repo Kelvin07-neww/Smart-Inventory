@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane fx:id="laporanRoot" styleClass="laporan-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cvserbaada.smartinventory.controller.LaporanController">
+    <padding>
+        <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+    </padding>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="laporan-header">
+            <children>
+                <VBox spacing="4.0">
+                    <children>
+                        <Label text="Laporan Penjualan" styleClass="laporan-title" />
+                        <Label text="Preview, print, dan export PDF transaksi penjualan." styleClass="laporan-subtitle" />
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button onAction="#handleRefresh" styleClass="secondary-button" text="Refresh">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-sync-alt" iconSize="14" />
+                    </graphic>
+                </Button>
+                <Button onAction="#handlePreview" styleClass="primary-button" text="Preview">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-eye" iconSize="14" />
+                    </graphic>
+                </Button>
+                <Button onAction="#handlePrint" styleClass="success-button" text="Print">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-print" iconSize="14" />
+                    </graphic>
+                </Button>
+                <Button onAction="#handleExportPdf" styleClass="danger-button" text="Export PDF">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-file-pdf" iconSize="14" />
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <HBox spacing="18.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox spacing="14.0" styleClass="laporan-card" HBox.hgrow="ALWAYS">
+                    <children>
+                        <HBox spacing="12.0">
+                            <children>
+                                <VBox spacing="4.0" styleClass="summary-card" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Total Transaksi" styleClass="summary-label" />
+                                        <Label fx:id="totalTransaksiLabel" text="0" styleClass="summary-value" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="4.0" styleClass="summary-card" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Total Nilai" styleClass="summary-label" />
+                                        <Label fx:id="totalNilaiLabel" text="Rp0" styleClass="summary-value" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <TableView fx:id="laporanTable" prefHeight="520.0" styleClass="laporan-table">
+                            <columns>
+                                <TableColumn fx:id="noColumn" prefWidth="55.0" sortable="false" text="No" />
+                                <TableColumn fx:id="fakturColumn" prefWidth="170.0" text="No Faktur" />
+                                <TableColumn fx:id="tanggalColumn" prefWidth="150.0" text="Tanggal" />
+                                <TableColumn fx:id="kasirColumn" prefWidth="140.0" text="Kasir" />
+                                <TableColumn fx:id="totalColumn" prefWidth="150.0" text="Grand Total" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+                <VBox prefWidth="420.0" spacing="12.0" styleClass="laporan-card">
+                    <children>
+                        <Label text="Preview Invoice" styleClass="panel-title" />
+                        <TextArea fx:id="previewArea" editable="false" prefHeight="590.0" wrapText="false" styleClass="preview-area" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </center>
+</BorderPane>

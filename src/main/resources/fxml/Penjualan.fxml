@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane fx:id="penjualanRoot" styleClass="penjualan-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cvserbaada.smartinventory.controller.PenjualanController">
+    <padding>
+        <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+    </padding>
+
+    <top>
+        <VBox spacing="16.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="penjualan-header">
+                    <children>
+                        <VBox spacing="4.0">
+                            <children>
+                                <Label text="Transaksi Penjualan" styleClass="penjualan-title" />
+                                <Label text="Kelola transaksi kasir dan keranjang penjualan." styleClass="penjualan-subtitle" />
+                            </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="penjualan-search-box">
+                            <children>
+                                <FontIcon iconLiteral="fas-search" iconSize="14" styleClass="penjualan-search-icon" />
+                                <TextField fx:id="searchBarangField" promptText="Cari kode atau nama barang" styleClass="penjualan-search-field" />
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+
+                <HBox spacing="14.0">
+                    <children>
+                        <VBox spacing="4.0" styleClass="info-card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Nomor Faktur" styleClass="info-label" />
+                                <Label fx:id="noFakturLabel" text="-" styleClass="info-value" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="4.0" styleClass="info-card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Tanggal" styleClass="info-label" />
+                                <Label fx:id="tanggalLabel" text="-" styleClass="info-value" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="4.0" styleClass="info-card" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Kasir" styleClass="info-label" />
+                                <Label fx:id="kasirLabel" text="-" styleClass="info-value" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="14.0" styleClass="cart-panel">
+            <children>
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                        <Label text="Keranjang Penjualan" styleClass="panel-title" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="Qty dapat diedit langsung di tabel" styleClass="table-hint" />
+                    </children>
+                </HBox>
+                <TableView fx:id="cartTable" editable="true" prefHeight="430.0" styleClass="cart-table">
+                    <columns>
+                        <TableColumn fx:id="noColumn" prefWidth="55.0" sortable="false" text="No" />
+                        <TableColumn fx:id="kodeColumn" prefWidth="130.0" text="Kode Barang" />
+                        <TableColumn fx:id="namaColumn" prefWidth="230.0" text="Nama Barang" />
+                        <TableColumn fx:id="hargaColumn" prefWidth="140.0" text="Harga" />
+                        <TableColumn fx:id="qtyColumn" prefWidth="90.0" text="Qty" />
+                        <TableColumn fx:id="subtotalColumn" prefWidth="160.0" text="Subtotal" />
+                    </columns>
+                </TableView>
+                <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                    <children>
+                        <Button fx:id="hapusBarangButton" onAction="#handleHapusBarang" styleClass="danger-button" text="Hapus Barang">
+                            <graphic>
+                                <FontIcon iconLiteral="fas-trash" iconSize="14" />
+                            </graphic>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox prefWidth="340.0" spacing="14.0" styleClass="side-panel" BorderPane.alignment="CENTER">
+            <children>
+                <VBox spacing="12.0" styleClass="form-card">
+                    <children>
+                        <VBox spacing="4.0">
+                            <children>
+                                <Label text="Pilih Barang" styleClass="panel-title" />
+                                <Label text="Cari dan masukkan barang ke keranjang" styleClass="penjualan-subtitle" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="7.0">
+                            <children>
+                                <Label text="Barang" styleClass="form-label" />
+                                <ComboBox fx:id="barangComboBox" maxWidth="Infinity" promptText="Pilih barang" styleClass="form-combo" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="7.0">
+                            <children>
+                                <Label text="Nama Barang" styleClass="form-label" />
+                                <TextField fx:id="namaBarangField" editable="false" promptText="Nama barang" styleClass="form-input" />
+                            </children>
+                        </VBox>
+                        <GridPane hgap="10.0" vgap="10.0">
+                            <children>
+                                <VBox spacing="7.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <children>
+                                        <Label text="Harga Jual" styleClass="form-label" />
+                                        <TextField fx:id="hargaField" editable="false" promptText="0" styleClass="form-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="7.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <children>
+                                        <Label text="Stok" styleClass="form-label" />
+                                        <TextField fx:id="stokField" editable="false" promptText="0" styleClass="form-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="7.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label text="Qty" styleClass="form-label" />
+                                        <TextField fx:id="qtyField" promptText="1" styleClass="form-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="7.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label text="Subtotal Item" styleClass="form-label" />
+                                        <Label fx:id="itemSubtotalLabel" text="0" styleClass="item-subtotal" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </GridPane>
+                        <Button onAction="#handleTambahBarang" maxWidth="Infinity" styleClass="primary-button" text="Tambah Barang">
+                            <graphic>
+                                <FontIcon iconLiteral="fas-plus" iconSize="14" />
+                            </graphic>
+                        </Button>
+                    </children>
+                </VBox>
+
+                <VBox spacing="12.0" styleClass="summary-card">
+                    <children>
+                        <Label text="Summary" styleClass="panel-title" />
+                        <HBox alignment="CENTER_LEFT" styleClass="summary-row">
+                            <children>
+                                <Label text="Subtotal" styleClass="summary-label" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label fx:id="subtotalLabel" text="0" styleClass="summary-value" />
+                            </children>
+                        </HBox>
+                        <VBox spacing="7.0">
+                            <children>
+                                <Label text="Diskon" styleClass="form-label" />
+                                <TextField fx:id="diskonField" promptText="0" styleClass="form-input" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="7.0">
+                            <children>
+                                <Label text="PPN" styleClass="form-label" />
+                                <TextField fx:id="ppnField" promptText="0" styleClass="form-input" />
+                            </children>
+                        </VBox>
+                        <HBox alignment="CENTER_LEFT" styleClass="grand-total-card">
+                            <children>
+                                <Label text="Grand Total" styleClass="grand-total-label" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label fx:id="grandTotalLabel" text="0" styleClass="grand-total-value" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </right>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" styleClass="action-bar">
+            <children>
+                <Button onAction="#handleReset" styleClass="secondary-button" text="Reset">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-redo" iconSize="14" />
+                    </graphic>
+                </Button>
+                <Button onAction="#handleCetakInvoice" styleClass="secondary-button" text="Cetak Invoice">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-print" iconSize="14" />
+                    </graphic>
+                </Button>
+                <Button onAction="#handleSimpanTransaksi" styleClass="success-button" text="Simpan Transaksi">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-save" iconSize="14" />
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

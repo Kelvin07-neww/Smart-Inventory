@@ -1,0 +1,104 @@
+.light-theme.app-root,
+.light-theme .content-area {
+    -fx-background-color: #F8FAFC;
+}
+
+.dark-theme.app-root,
+.dark-theme .content-area,
+.dark-theme .dashboard-scroll,
+.dark-theme .dashboard-scroll > .viewport,
+.dark-theme .dashboard-root,
+.dark-theme .settings-root,
+.dark-theme .settings-scroll,
+.dark-theme .settings-scroll > .viewport,
+.dark-theme .settings-content,
+.dark-theme .laporan-root {
+    -fx-background-color: #0F172A;
+    -fx-background: #0F172A;
+}
+
+.dark-theme .app-header,
+.dark-theme .settings-card,
+.dark-theme .laporan-card,
+.dark-theme .summary-card,
+.dark-theme .metric-card,
+.dark-theme .dashboard-panel,
+.dark-theme .date-pill,
+.dark-theme .header-info-pill {
+    -fx-background-color: #1E293B;
+    -fx-border-color: #334155;
+}
+
+.dark-theme .sidebar {
+    -fx-background-color: #020617;
+    -fx-border-color: transparent #1E293B transparent transparent;
+}
+
+.dark-theme .app-title,
+.dark-theme .settings-title,
+.dark-theme .laporan-title,
+.dark-theme .section-title,
+.dark-theme .info-value,
+.dark-theme .metric-value,
+.dark-theme .panel-title,
+.dark-theme .dashboard-title {
+    -fx-text-fill: #F8FAFC;
+}
+
+.dark-theme .settings-subtitle,
+.dark-theme .laporan-subtitle,
+.dark-theme .helper-text,
+.dark-theme .company-description,
+.dark-theme .form-label,
+.dark-theme .info-label,
+.dark-theme .metric-title,
+.dark-theme .dashboard-subtitle,
+.dark-theme .date-text,
+.dark-theme .header-info-caption {
+    -fx-text-fill: #CBD5E1;
+}
+
+.dark-theme .settings-input,
+.dark-theme .profile-photo-box,
+.dark-theme .laporan-table .column-header-background,
+.dark-theme .laporan-table .table-row-cell,
+.dark-theme .activity-table .column-header-background,
+.dark-theme .activity-table .table-row-cell {
+    -fx-background-color: #0F172A;
+    -fx-border-color: #334155;
+    -fx-text-fill: #F8FAFC;
+}
+
+.dark-theme .settings-input:focused {
+    -fx-background-color: #111827;
+    -fx-border-color: #60A5FA;
+}
+
+.dark-theme .theme-radio,
+.dark-theme .laporan-table .table-cell,
+.dark-theme .laporan-table .column-header .label,
+.dark-theme .header-info-value,
+.dark-theme .header-user-name,
+.dark-theme .header-user-role,
+.dark-theme .activity-table .table-cell,
+.dark-theme .activity-table .column-header .label {
+    -fx-text-fill: #E2E8F0;
+}
+
+.dark-theme .secondary-button,
+.dark-theme .quick-action-button {
+    -fx-background-color: #1E3A8A;
+    -fx-text-fill: #DBEAFE;
+}
+
+.dark-theme .secondary-button .ikonli-font-icon,
+.dark-theme .quick-action-button .ikonli-font-icon,
+.dark-theme .section-icon,
+.dark-theme .date-icon,
+.dark-theme .clock-icon {
+    -fx-icon-color: #93C5FD;
+}
+
+.dark-theme .sidebar-divider {
+    -fx-background-color: #1E293B;
+}

@@ -1,0 +1,183 @@
+.settings-root,
+.settings-scroll,
+.settings-scroll > .viewport,
+.settings-content {
+    -fx-background-color: #F8FAFC;
+    -fx-background: #F8FAFC;
+}
+
+.settings-header {
+    -fx-padding: 0 0 4px 0;
+}
+
+.settings-title {
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 30px;
+    -fx-font-weight: 900;
+}
+
+.settings-subtitle,
+.helper-text,
+.company-description {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+
+.settings-card {
+    -fx-background-color: white;
+    -fx-background-radius: 18px;
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 18px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.06), 18, 0.16, 0, 5);
+}
+
+.section-title {
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 16px;
+    -fx-font-weight: 900;
+}
+
+.section-icon {
+    -fx-icon-color: #2563EB;
+}
+
+.profile-photo-box {
+    -fx-min-width: 150px;
+    -fx-padding: 14px;
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 16px;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 16px;
+}
+
+.profile-photo-box .image-view {
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.12), 12, 0.18, 0, 4);
+}
+
+.form-label,
+.info-label {
+    -fx-text-fill: #475569;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+}
+
+.settings-input {
+    -fx-min-height: 40px;
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 12px;
+    -fx-border-color: #CBD5E1;
+    -fx-border-radius: 12px;
+    -fx-border-width: 1px;
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-prompt-text-fill: #94A3B8;
+}
+
+.settings-input:focused {
+    -fx-border-color: #2563EB;
+    -fx-background-color: white;
+}
+
+.readonly-input {
+    -fx-opacity: 0.78;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+    -fx-min-height: 40px;
+    -fx-background-radius: 12px;
+    -fx-font-size: 13px;
+    -fx-font-weight: 900;
+    -fx-graphic-text-gap: 8px;
+    -fx-padding: 9px 15px;
+}
+
+.primary-button {
+    -fx-background-color: #2563EB;
+    -fx-text-fill: white;
+}
+
+.primary-button .ikonli-font-icon,
+.danger-button .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
+.primary-button:hover {
+    -fx-background-color: #1D4ED8;
+}
+
+.secondary-button {
+    -fx-background-color: #EFF6FF;
+    -fx-text-fill: #1E40AF;
+}
+
+.secondary-button .ikonli-font-icon {
+    -fx-icon-color: #2563EB;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #DBEAFE;
+}
+
+.danger-button {
+    -fx-background-color: #DC2626;
+    -fx-text-fill: white;
+}
+
+.danger-button:hover {
+    -fx-background-color: #B91C1C;
+}
+
+.theme-radio {
+    -fx-text-fill: #334155;
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+}
+
+.theme-radio .radio {
+    -fx-border-color: #94A3B8;
+    -fx-border-radius: 50%;
+    -fx-background-color: white;
+}
+
+.theme-radio:selected .radio .dot {
+    -fx-background-color: #2563EB;
+}
+
+.info-value {
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 13px;
+    -fx-font-weight: 900;
+}
+
+.status-badge {
+    -fx-background-radius: 999px;
+    -fx-padding: 5px 12px;
+    -fx-font-size: 12px;
+    -fx-font-weight: 900;
+}
+
+.status-connected {
+    -fx-background-color: #DCFCE7;
+    -fx-text-fill: #166534;
+}
+
+.status-disconnected {
+    -fx-background-color: #FEE2E2;
+    -fx-text-fill: #991B1B;
+}
+
+.company-card {
+    -fx-min-height: 220px;
+}
+
+.company-name {
+    -fx-text-fill: #1E40AF;
+    -fx-font-size: 24px;
+    -fx-font-weight: 900;
+}

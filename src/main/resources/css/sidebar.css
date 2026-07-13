@@ -1,0 +1,76 @@
+.sidebar {
+    -fx-background-color: #1E293B;
+    -fx-border-color: transparent #0F172A transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-section-title {
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-padding: 0 0 10px 8px;
+}
+
+.sidebar-group-title {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 10px;
+    -fx-font-weight: 800;
+    -fx-padding: 12px 0 2px 8px;
+}
+
+.nav-button {
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-color: transparent;
+    -fx-background-radius: 11px;
+    -fx-text-fill: #CBD5E1;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-graphic-text-gap: 12px;
+    -fx-padding: 11px 12px;
+}
+
+.nav-button .ikonli-font-icon {
+    -fx-icon-color: #94A3B8;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(37, 99, 235, 0.18);
+    -fx-text-fill: white;
+    -fx-translate-x: 3px;
+}
+
+.nav-button:hover .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
+.nav-button.active {
+    -fx-background-color: #2563EB;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.35), 12, 0.25, 0, 3);
+}
+
+.nav-button.active .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
+.group-button {
+    -fx-opacity: 0.72;
+}
+
+.child-button {
+    -fx-padding: 10px 12px 10px 28px;
+}
+
+.logout-button {
+    -fx-text-fill: #FCA5A5;
+}
+
+.logout-button:hover {
+    -fx-background-color: rgba(239, 68, 68, 0.18);
+    -fx-text-fill: white;
+}
+
+.sidebar-divider {
+    -fx-min-height: 1px;
+    -fx-background-color: #334155;
+}

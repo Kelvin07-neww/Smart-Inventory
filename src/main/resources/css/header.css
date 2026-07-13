@@ -1,0 +1,88 @@
+.app-header {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #E2E8F0 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.06), 14, 0.2, 0, 3);
+}
+
+.app-logo-box {
+    -fx-min-width: 48px;
+    -fx-min-height: 48px;
+    -fx-background-color: linear-gradient(to bottom right, #2563EB, #1E40AF);
+    -fx-background-radius: 14px;
+}
+
+.app-logo-icon {
+    -fx-icon-color: white;
+}
+
+.app-title-box {
+    -fx-padding: 0 0 0 2px;
+}
+
+.app-title {
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+}
+
+.company-title {
+    -fx-text-fill: #2563EB;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+.header-info-pill {
+    -fx-background-color: #EFF6FF;
+    -fx-background-radius: 16px;
+    -fx-border-color: #DBEAFE;
+    -fx-border-width: 1px;
+    -fx-border-radius: 16px;
+    -fx-padding: 8px 12px;
+}
+
+.date-pill {
+    -fx-background-color: #F8FAFC;
+    -fx-border-color: #E2E8F0;
+}
+
+.user-pill {
+    -fx-background-color: #F0FDF4;
+    -fx-border-color: #BBF7D0;
+}
+
+.clock-icon {
+    -fx-icon-color: #2563EB;
+}
+
+.date-icon {
+    -fx-icon-color: #475569;
+}
+
+.user-icon {
+    -fx-icon-color: #16A34A;
+}
+
+.header-info-caption {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 10px;
+    -fx-font-weight: 800;
+}
+
+.header-info-value {
+    -fx-text-fill: #1E40AF;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+}
+
+.header-user-name {
+    -fx-text-fill: #14532D;
+    -fx-font-size: 12px;
+    -fx-font-weight: 900;
+}
+
+.header-user-role {
+    -fx-text-fill: #16A34A;
+    -fx-font-size: 10px;
+    -fx-font-weight: 800;
+}

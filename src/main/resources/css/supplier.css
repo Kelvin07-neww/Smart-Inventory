@@ -1,0 +1,206 @@
+.supplier-root {
+    -fx-background-color: #F8FAFC;
+}
+
+.supplier-header {
+    -fx-padding: 0 0 18px 0;
+}
+
+.supplier-title {
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 26px;
+    -fx-font-weight: 900;
+}
+
+.supplier-subtitle,
+.supplier-form-subtitle,
+.supplier-table-hint-label {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+
+.supplier-search-box {
+    -fx-background-color: white;
+    -fx-background-radius: 14px;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 14px;
+    -fx-border-width: 1px;
+    -fx-padding: 0 12px;
+    -fx-min-height: 44px;
+    -fx-pref-width: 310px;
+}
+
+.supplier-search-icon {
+    -fx-icon-color: #2563EB;
+}
+
+.supplier-search-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #0F172A;
+    -fx-prompt-text-fill: #94A3B8;
+    -fx-font-size: 13px;
+}
+
+.supplier-table-panel,
+.supplier-form-panel {
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 20px;
+    -fx-border-width: 1px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.07), 18, 0.18, 0, 6);
+}
+
+.supplier-form-panel {
+    -fx-translate-x: 18px;
+}
+
+.supplier-table-info-label,
+.supplier-form-title {
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 15px;
+    -fx-font-weight: 900;
+}
+
+.supplier-table {
+    -fx-background-color: transparent;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 14px;
+    -fx-background-radius: 14px;
+}
+
+.supplier-table .column-header-background {
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 14px 14px 0 0;
+}
+
+.supplier-table .column-header,
+.supplier-table .filler {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+}
+
+.supplier-table .column-header .label {
+    -fx-text-fill: #334155;
+    -fx-font-size: 12px;
+    -fx-font-weight: 900;
+}
+
+.supplier-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #F1F5F9 transparent;
+}
+
+.supplier-table .table-row-cell:filled:selected,
+.supplier-table .table-row-cell:filled:hover {
+    -fx-background-color: #EFF6FF;
+}
+
+.supplier-table .table-cell {
+    -fx-text-fill: #475569;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.supplier-form-label {
+    -fx-text-fill: #334155;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+}
+
+.supplier-form-input,
+.supplier-form-textarea {
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 12px;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 12px;
+    -fx-border-width: 1px;
+    -fx-text-fill: #0F172A;
+    -fx-prompt-text-fill: #94A3B8;
+    -fx-font-size: 13px;
+}
+
+.supplier-form-input {
+    -fx-min-height: 44px;
+    -fx-padding: 0 12px;
+}
+
+.supplier-form-textarea {
+    -fx-padding: 8px 10px;
+}
+
+.supplier-form-textarea .content {
+    -fx-background-color: #F8FAFC;
+    -fx-background-radius: 12px;
+}
+
+.supplier-form-input:focused,
+.supplier-form-textarea:focused {
+    -fx-background-color: white;
+    -fx-border-color: #2563EB;
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.16), 12, 0.2, 0, 2);
+}
+
+.supplier-action-bar {
+    -fx-padding: 18px 0 0 0;
+}
+
+.supplier-primary-button,
+.supplier-secondary-button,
+.supplier-warning-button,
+.supplier-danger-button,
+.supplier-refresh-button,
+.supplier-export-button {
+    -fx-min-height: 40px;
+    -fx-background-radius: 12px;
+    -fx-font-size: 13px;
+    -fx-font-weight: 900;
+    -fx-padding: 0 16px;
+}
+
+.supplier-primary-button {
+    -fx-background-color: #2563EB;
+    -fx-text-fill: white;
+}
+
+.supplier-secondary-button,
+.supplier-refresh-button,
+.supplier-export-button {
+    -fx-background-color: white;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 12px;
+    -fx-text-fill: #334155;
+}
+
+.supplier-warning-button {
+    -fx-background-color: #F59E0B;
+    -fx-text-fill: white;
+}
+
+.supplier-danger-button {
+    -fx-background-color: #DC2626;
+    -fx-text-fill: white;
+}
+
+.supplier-primary-button:hover,
+.supplier-secondary-button:hover,
+.supplier-warning-button:hover,
+.supplier-danger-button:hover,
+.supplier-refresh-button:hover,
+.supplier-export-button:hover {
+    -fx-translate-y: -1px;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.16), 12, 0.22, 0, 4);
+}
+
+.supplier-refresh-button .ikonli-font-icon,
+.supplier-export-button .ikonli-font-icon {
+    -fx-icon-color: #2563EB;
+}
+
+.supplier-pagination .pagination-control .button {
+    -fx-background-radius: 9px;
+}

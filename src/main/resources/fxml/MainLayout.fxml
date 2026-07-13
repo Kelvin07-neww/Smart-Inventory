@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane fx:id="rootLayout" styleClass="app-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cvserbaada.smartinventory.controller.MainLayoutController">
+    <top>
+        <fx:include fx:id="header" source="Header.fxml" />
+    </top>
+    <left>
+        <fx:include fx:id="sidebar" source="Sidebar.fxml" />
+    </left>
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area" />
+    </center>
+    <bottom>
+        <fx:include fx:id="statusBar" source="StatusBar.fxml" />
+    </bottom>
+</BorderPane>

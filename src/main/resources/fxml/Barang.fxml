@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane fx:id="barangRoot" styleClass="barang-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cvserbaada.smartinventory.controller.BarangController">
+    <padding>
+        <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+    </padding>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="barang-header">
+            <children>
+                <VBox spacing="4.0">
+                    <children>
+                        <Label text="Master Data Barang" styleClass="barang-title" />
+                        <Label text="Kelola data barang inventory." styleClass="barang-subtitle" />
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="barang-search-box">
+                    <children>
+                        <FontIcon iconLiteral="fas-search" iconSize="14" styleClass="barang-search-icon" />
+                        <TextField fx:id="searchField" promptText="Cari kode atau nama barang" styleClass="barang-search-field" />
+                    </children>
+                </HBox>
+                <Button onAction="#handleRefresh" styleClass="barang-refresh-button" text="Refresh">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-sync-alt" iconSize="14" />
+                    </graphic>
+                </Button>
+                <Button onAction="#handleImportExcel" styleClass="barang-excel-button" text="Import Excel">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-file-import" iconSize="14" />
+                    </graphic>
+                </Button>
+                <Button onAction="#handleExportExcel" styleClass="barang-excel-button" text="Export Excel">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-file-export" iconSize="14" />
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="12.0" styleClass="barang-table-panel">
+            <children>
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                        <Label fx:id="totalDataLabel" text="Total Data: 0" styleClass="barang-table-info-label" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="Klik baris untuk mengisi form" styleClass="barang-table-hint-label" />
+                    </children>
+                </HBox>
+                <TableView fx:id="barangTable" prefHeight="430.0" styleClass="barang-table">
+                    <columns>
+                        <TableColumn fx:id="noColumn" prefWidth="52.0" sortable="false" text="No" />
+                        <TableColumn fx:id="kodeColumn" prefWidth="115.0" text="Kode Barang" />
+                        <TableColumn fx:id="namaColumn" prefWidth="180.0" text="Nama Barang" />
+                        <TableColumn fx:id="kategoriColumn" prefWidth="145.0" text="Kategori" />
+                        <TableColumn fx:id="supplierColumn" prefWidth="160.0" text="Supplier" />
+                        <TableColumn fx:id="hargaBeliColumn" prefWidth="125.0" text="Harga Beli" />
+                        <TableColumn fx:id="hargaJualColumn" prefWidth="125.0" text="Harga Jual" />
+                        <TableColumn fx:id="stokColumn" prefWidth="70.0" text="Stok" />
+                    </columns>
+                </TableView>
+                <Pagination fx:id="pagination" maxPageIndicatorCount="5" styleClass="barang-pagination" />
+            </children>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox prefWidth="330.0" spacing="13.0" styleClass="barang-form-panel" BorderPane.alignment="CENTER">
+            <children>
+                <VBox spacing="5.0">
+                    <children>
+                        <Label text="Form Barang" styleClass="barang-form-title" />
+                        <Label text="Isi data barang dengan lengkap" styleClass="barang-form-subtitle" />
+                    </children>
+                </VBox>
+                <VBox spacing="7.0">
+                    <children>
+                        <Label text="Kode Barang" styleClass="barang-form-label" />
+                        <TextField fx:id="kodeBarangField" promptText="Contoh: BRG001" styleClass="barang-form-input" />
+                    </children>
+                </VBox>
+                <VBox spacing="7.0">
+                    <children>
+                        <Label text="Nama Barang" styleClass="barang-form-label" />
+                        <TextField fx:id="namaBarangField" promptText="Contoh: Beras Premium" styleClass="barang-form-input" />
+                    </children>
+                </VBox>
+                <VBox spacing="7.0">
+                    <children>
+                        <Label text="Kategori" styleClass="barang-form-label" />
+                        <ComboBox fx:id="kategoriComboBox" maxWidth="Infinity" promptText="Pilih kategori" styleClass="barang-form-combo" />
+                    </children>
+                </VBox>
+                <VBox spacing="7.0">
+                    <children>
+                        <Label text="Supplier" styleClass="barang-form-label" />
+                        <ComboBox fx:id="supplierComboBox" maxWidth="Infinity" promptText="Pilih supplier" styleClass="barang-form-combo" />
+                    </children>
+                </VBox>
+                <HBox spacing="10.0">
+                    <children>
+                        <VBox spacing="7.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Harga Beli" styleClass="barang-form-label" />
+                                <TextField fx:id="hargaBeliField" promptText="0" styleClass="barang-form-input" />
+                            </children>
+                        </VBox>
+                        <VBox spacing="7.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label text="Harga Jual" styleClass="barang-form-label" />
+                                <TextField fx:id="hargaJualField" promptText="0" styleClass="barang-form-input" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <VBox spacing="7.0">
+                    <children>
+                        <Label text="Stok" styleClass="barang-form-label" />
+                        <TextField fx:id="stokField" promptText="0" styleClass="barang-form-input" />
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </right>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" styleClass="barang-action-bar">
+            <children>
+                <Button onAction="#handleTambah" styleClass="barang-secondary-button" text="Tambah" />
+                <Button onAction="#handleSimpan" styleClass="barang-primary-button" text="Simpan" />
+                <Button fx:id="editButton" onAction="#handleEdit" styleClass="barang-warning-button" text="Edit" />
+                <Button fx:id="hapusButton" onAction="#handleHapus" styleClass="barang-danger-button" text="Hapus" />
+                <Button onAction="#handleBatal" styleClass="barang-secondary-button" text="Batal" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

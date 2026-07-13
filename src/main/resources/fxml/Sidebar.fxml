@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox prefWidth="240.0" spacing="6.0" styleClass="sidebar" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cvserbaada.smartinventory.controller.SidebarController">
+    <padding>
+        <Insets bottom="18.0" left="14.0" right="14.0" top="18.0" />
+    </padding>
+    <children>
+        <Label text="NAVIGATION" styleClass="sidebar-section-title" />
+        <VBox fx:id="menuContainer" spacing="4.0" VBox.vgrow="ALWAYS">
+            <children>
+                <Button onAction="#selectDashboard" userData="Dashboard" maxWidth="Infinity" styleClass="nav-button" text="Dashboard">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-tachometer-alt" iconSize="16" />
+                    </graphic>
+                </Button>
+                <Label text="MASTER DATA" styleClass="sidebar-group-title" />
+                <Button onAction="#selectKategori" userData="Kategori" maxWidth="Infinity" styleClass="nav-button child-button" text="Kategori">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-tags" iconSize="15" />
+                    </graphic>
+                </Button>
+                <Button onAction="#selectSupplier" userData="Supplier" maxWidth="Infinity" styleClass="nav-button child-button" text="Supplier">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-truck" iconSize="15" />
+                    </graphic>
+                </Button>
+                <Button onAction="#selectBarang" userData="Barang" maxWidth="Infinity" styleClass="nav-button child-button" text="Barang">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-box" iconSize="15" />
+                    </graphic>
+                </Button>
+                <Label text="TRANSAKSI" styleClass="sidebar-group-title" />
+                <Button onAction="#selectPenjualan" userData="Penjualan" maxWidth="Infinity" styleClass="nav-button child-button" text="Penjualan">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-shopping-cart" iconSize="15" />
+                    </graphic>
+                </Button>
+                <Button onAction="#selectLaporan" userData="Laporan" maxWidth="Infinity" styleClass="nav-button" text="Laporan">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-chart-line" iconSize="16" />
+                    </graphic>
+                </Button>
+                <Button onAction="#selectSettings" userData="Settings" maxWidth="Infinity" styleClass="nav-button" text="Settings">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-cog" iconSize="16" />
+                    </graphic>
+                </Button>
+            </children>
+        </VBox>
+        <Region VBox.vgrow="ALWAYS" />
+        <HBox styleClass="sidebar-divider" />
+        <Button fx:id="logoutButton" onAction="#selectLogout" userData="Logout" maxWidth="Infinity" styleClass="nav-button logout-button" text="Logout">
+            <graphic>
+                <FontIcon iconLiteral="fas-sign-out-alt" iconSize="16" />
+            </graphic>
+        </Button>
+    </children>
+</VBox>
