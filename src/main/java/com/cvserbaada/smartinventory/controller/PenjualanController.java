@@ -28,6 +28,7 @@ import javafx.util.StringConverter;
 import javafx.util.converter.IntegerStringConverter;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.time.LocalDateTime;
@@ -110,6 +111,12 @@ public class PenjualanController {
 
     @FXML
     private Label subtotalLabel;
+
+    @FXML
+    private Label diskonAmountLabel;
+
+    @FXML
+    private Label ppnAmountLabel;
 
     @FXML
     private Label grandTotalLabel;
@@ -327,8 +334,8 @@ public class PenjualanController {
 
     private Penjualan buildPenjualan() {
         BigDecimal subtotal = calculateSubtotal();
-        BigDecimal diskon = parseMoney(diskonField.getText(), "Diskon");
-        BigDecimal ppn = parseMoney(ppnField.getText(), "PPN");
+        BigDecimal diskon = calculatePercentageAmount(subtotal, parsePercentage(diskonField.getText(), "Diskon"));
+        BigDecimal ppn = calculatePercentageAmount(subtotal.subtract(diskon), parsePercentage(ppnField.getText(), "PPN"));
         BigDecimal grandTotal = subtotal.subtract(diskon).add(ppn);
 
         return new Penjualan(
@@ -347,11 +354,13 @@ public class PenjualanController {
 
     private void recalculateSummary() {
         BigDecimal subtotal = calculateSubtotal();
-        BigDecimal diskon = safeParseMoney(diskonField.getText());
-        BigDecimal ppn = safeParseMoney(ppnField.getText());
+        BigDecimal diskon = calculatePercentageAmount(subtotal, safeParsePercentage(diskonField.getText()));
+        BigDecimal ppn = calculatePercentageAmount(subtotal.subtract(diskon), safeParsePercentage(ppnField.getText()));
         BigDecimal grandTotal = subtotal.subtract(diskon).add(ppn);
 
         subtotalLabel.setText(formatCurrency(subtotal));
+        diskonAmountLabel.setText(formatCurrency(diskon));
+        ppnAmountLabel.setText(formatCurrency(ppn));
         grandTotalLabel.setText(formatCurrency(grandTotal.max(BigDecimal.ZERO)));
     }
 
@@ -378,8 +387,8 @@ public class PenjualanController {
         }
     }
 
-    private BigDecimal parseMoney(String value, String fieldName) {
-        String normalizedValue = normalizeMoney(value);
+    private BigDecimal parsePercentage(String value, String fieldName) {
+        String normalizedValue = normalizePercentage(value);
         if (normalizedValue.isBlank()) {
             return BigDecimal.ZERO;
         }
@@ -389,22 +398,37 @@ public class PenjualanController {
             if (result.compareTo(BigDecimal.ZERO) < 0) {
                 throw new IllegalArgumentException(fieldName + " tidak boleh negatif.");
             }
+            if (result.compareTo(BigDecimal.valueOf(100)) > 0) {
+                throw new IllegalArgumentException(fieldName + " tidak boleh lebih dari 100%.");
+            }
             return result;
         } catch (NumberFormatException exception) {
-            throw new IllegalArgumentException(fieldName + " harus angka.");
+            throw new IllegalArgumentException(fieldName + " harus angka persen.");
         }
     }
 
-    private BigDecimal safeParseMoney(String value) {
+    private BigDecimal safeParsePercentage(String value) {
         try {
-            return parseMoney(value, "Nilai");
+            return parsePercentage(value, "Nilai");
         } catch (IllegalArgumentException exception) {
             return BigDecimal.ZERO;
         }
     }
 
+    private BigDecimal calculatePercentageAmount(BigDecimal baseAmount, BigDecimal percentage) {
+        BigDecimal safeBaseAmount = baseAmount == null ? BigDecimal.ZERO : baseAmount.max(BigDecimal.ZERO);
+        BigDecimal safePercentage = percentage == null ? BigDecimal.ZERO : percentage;
+        return safeBaseAmount
+                .multiply(safePercentage)
+                .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
+    }
+
     private String normalizeMoney(String value) {
         return value == null ? "" : value.trim().replace("_", "").replace(" ", "");
+    }
+
+    private String normalizePercentage(String value) {
+        return normalizeMoney(value).replace("%", "").replace(',', '.');
     }
 
     private boolean isBarangAlreadyInCart(int barangId) {

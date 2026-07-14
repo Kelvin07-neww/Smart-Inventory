@@ -86,9 +86,10 @@ public class LaporanController {
 
     @FXML
     private void handlePreview() {
-        Penjualan selectedPenjualan = laporanTable.getSelectionModel().getSelectedItem();
+        Penjualan selectedPenjualan = getSelectedOrFirstPenjualan();
         if (selectedPenjualan == null) {
-            AlertUtil.showWarning("Preview Laporan", "Pilih transaksi yang akan dipreview.");
+            previewArea.setText("Belum ada transaksi penjualan untuk ditampilkan.");
+            AlertUtil.showWarning("Preview Laporan", "Belum ada transaksi yang dapat dipreview.");
             return;
         }
 
@@ -172,7 +173,9 @@ public class LaporanController {
             updateSummary();
             if (!penjualanList.isEmpty()) {
                 laporanTable.getSelectionModel().selectFirst();
+                previewArea.setText(buildInvoicePreview(penjualanList.getFirst()));
             } else {
+                laporanTable.getSelectionModel().clearSelection();
                 previewArea.setText("Belum ada transaksi penjualan untuk ditampilkan.");
             }
         } catch (SQLException exception) {
@@ -187,6 +190,19 @@ public class LaporanController {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
         totalTransaksiLabel.setText(String.valueOf(penjualanList.size()));
         totalNilaiLabel.setText(currencyFormat.format(totalNilai));
+    }
+
+    private Penjualan getSelectedOrFirstPenjualan() {
+        Penjualan selectedPenjualan = laporanTable.getSelectionModel().getSelectedItem();
+        if (selectedPenjualan != null) {
+            return selectedPenjualan;
+        }
+        if (penjualanList.isEmpty()) {
+            return null;
+        }
+
+        laporanTable.getSelectionModel().selectFirst();
+        return penjualanList.getFirst();
     }
 
     private String buildInvoicePreview(Penjualan penjualan) {

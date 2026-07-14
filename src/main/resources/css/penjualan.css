@@ -63,8 +63,18 @@
     -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.11), 22, 0.2, 0, 7);
 }
 
+.side-scroll-pane,
+.side-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.side-scroll-pane {
+    -fx-background: transparent;
+    -fx-padding: 0 0 0 18px;
+}
+
 .side-panel {
-    -fx-translate-x: 18px;
+    -fx-background-color: transparent;
 }
 
 .info-label,
